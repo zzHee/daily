@@ -7,7 +7,8 @@ char stack[maxSize];
 
 int main()
 {
-	int temp=0;//先用这个变量储存个数扫描到为合法序列再把他的值赋给mark 
+	int left=0;//先用这个变量储存个数扫描到为合法序列再把他的值赋给mark 
+	int total=0;
 	int top=-1;
 	int j=0;
 	int max=0;
@@ -20,27 +21,31 @@ int main()
 		if(str[i]=='(')
 		{
 			stack[++top]=='(';
-			temp++;
-//			mark[j]++;
-//			cout << '*';
+			left++;
 		}
 		else if(str[i]==')')
 		{
 			if(top>=0)
 			{
 				top--;
-				temp++;
-//				mark[j]++;
+				left--;
+				total+=2;
 			}
 			
 			//如果数组已经为空就直接判断，如果不为空则先出栈再判断 
 			if(top==-1)//然后判断是否为空 为空则为一个合法序列 
 			{
-				mark[j]=temp;
-				temp=0;
+				mark[j]=total;
+				left=0;
+				total=0;
 				j++;
 			}
 		}
+	}
+	if(left!=0)
+	{
+		mark[j++]=0;
+		mark[j++]=total;
 	}
 //	for(int i=0;i<j+1;i++)
 //	{
