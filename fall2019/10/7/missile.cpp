@@ -30,8 +30,8 @@ void QuickSort(int R[],int x[],int y[],int low,int high)
 			if(i<j)
 			{
 				R[j]=R[i];
-				x[i]=x[j];
-				y[i]=y[j];
+				x[j]=x[i];
+				y[j]=y[i];
 				--j;
 			}
 		}
@@ -59,7 +59,7 @@ int main()
 	{
 		d2[i]=(x[i]-x2)*(x[i]-x2)+(y[i]-y2)*(y[i]-y2);
 	}
-	int max=d2[n-1];
+	int max=n-1;//这里之前搞错了，明确max是储存下标还是数字 
 	for(int i=n-1;i>=0;--i)
 	{
 		if(d2[i]>d2[max])
@@ -105,5 +105,6 @@ int main()
 //	{
 //		cout << d1[i] << ' ' << d2[i] << ' '<< x[i] << ' ' << y[i]<< endl;
 //	}
+//	
 	return 0;
 }

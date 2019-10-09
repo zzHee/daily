@@ -1,12 +1,11 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h> 
 int num[501000];
 int main()
 {
 	int n;
 	int temp;
 	int flag=0;
-	__int64 cnt=0;;
+	long long cnt=0;
 	scanf("%d\n",&n);
 	for(int i=0;i<n;++i)
 	{
@@ -28,6 +27,6 @@ int main()
 		}
 		if(flag==0) break;
 	}
-	printf("%I64d",cnt);
+	printf("%lld",cnt);
 	return 0;
 }
